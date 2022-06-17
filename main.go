@@ -65,7 +65,8 @@ func displayHexTable(b []byte) {
 	}
 	if hexPart.Len() > 0 {
 		hexlen := 3*16 + 3
-		fmt.Printf("%08x:  %s%s  %s\n", i-16, hexPart.String(), strings.Repeat(" ", hexlen-len(hexPart.String())), strPart.String())
+		fmt.Printf("%08x:  %s%s  %s\n", i-(i%16), hexPart.String(), strings.Repeat(" ", hexlen-len(hexPart.String())), strPart.String())
+
 	}
 }
 
@@ -100,12 +101,8 @@ func displayUnicodeTable(b []byte) {
 	}
 	if hexPart.Len() > 0 {
 		hexlen := 6*16 + 3 // default for unicode
-		fmt.Printf("%08x:  %s%s  %s\n", i-16, hexPart.String(), strings.Repeat(" ", hexlen-len(hexPart.String())), strPart.String())
+		fmt.Printf("%08x:  %s%s  %s\n", i-(i%16), hexPart.String(), strings.Repeat(" ", hexlen-len(hexPart.String())), strPart.String())
 	}
-	// fmt.Printf("\n\n%d characters\n", i-1)
-	// fmt.Println("bytes length:", len(b))
-	// fmt.Println("number of runes in bytes:", utf8.RuneCount(b))
-	// fmt.Println("number of runes in string:", utf8.RuneCountInString(data))
 }
 
 // 😁
