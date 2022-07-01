@@ -1,0 +1,13 @@
+sync:
+  - id: src
+    remote: ((.remotedir))
+    dos2unix: true
+    ignore:
+      - ".git/"
+      - ".gitignore"
+      - "*.md"
+    binfiles:
+      - "*.go"
+      - "go.mod"
+      - "go.sum"
+      - "vendor/**/*"
