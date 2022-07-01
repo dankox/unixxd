@@ -21,7 +21,8 @@ func main() {
 		file = flag.Arg(0)
 	}
 	if file == "" {
-		fmt.Println("no file specified")
+		fmt.Fprintln(os.Stderr, "no file specified")
+		flag.Usage()
 		os.Exit(1)
 	}
 	f, err := os.Open(file)
